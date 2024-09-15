@@ -35,8 +35,7 @@ jobs:
       - name: Restaurando a aplicação
         run: |
                ssh -i /tmp/private_key -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null ubuntu@${{ secrets.HOST }} \
-               cd /var/www/app \
-               sudo composer install \
+               sudo composer install --working-dir /var/www/app \
 
       - name: Reiniciando o apache2
         run: |
